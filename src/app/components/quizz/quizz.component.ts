@@ -22,6 +22,18 @@ export class QuizzComponent implements OnInit {
 
   finished:boolean = false
 
+  backgroundColors: string[] = [
+    '#644ED2', 
+    '#18ab29', 
+    '#FF5733', 
+    '#FFC300', 
+    '#C70039', 
+    '#900C3F', 
+    '#581845'  
+  ]
+
+  currentBackgroundColor: string = this.backgroundColors[0]
+
   constructor() { }
 
   ngOnInit(): void {
@@ -34,6 +46,8 @@ export class QuizzComponent implements OnInit {
 
       this.questionIndex = 0
       this.questionMaxIndex = this.questions.length
+
+      this.setBackgroundColor()
 
       console.log(this.questionIndex)
       console.log(this.questionMaxIndex)
@@ -52,6 +66,7 @@ export class QuizzComponent implements OnInit {
 
     if(this.questionMaxIndex > this.questionIndex){
         this.questionSelected = this.questions[this.questionIndex]
+        this.setBackgroundColor()
     }else{
       const finalAnswer:string = await this.checkResult(this.answers)
       this.finished = true
@@ -73,6 +88,11 @@ export class QuizzComponent implements OnInit {
     })
 
     return result
+  }
+
+  setBackgroundColor() {
+    const colorIndex = this.questionIndex % this.backgroundColors.length
+    this.currentBackgroundColor = this.backgroundColors[colorIndex]
   }
 
 }

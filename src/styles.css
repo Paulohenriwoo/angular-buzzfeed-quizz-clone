@@ -1,12 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
-*{
-  padding:0;
-  margin:0;
-  border:0;
-  box-sizing: border-box;
-  color:antiquewhite;
+:root {
+  --color-background: #644ED2;
+  --color-text: #FAF9F6;
+  --color-primary: #644ED2;
+  --color-secondary: #18ab29;
+  --color-hover: #5cbf2a;
+  --color-border: #4224d9;
+  --font-family-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-family-secondary: Arial, sans-serif;
 }
 
-body{
-  background-color: #1F1147;
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family-primary);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: var(--font-family-secondary);
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:focus {
+  outline: none;
+}
+
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
